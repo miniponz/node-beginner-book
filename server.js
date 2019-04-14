@@ -1,8 +1,16 @@
 const http = require('http');
 
-http.createServer(function(req, res) {
+function onRequest(req, res) {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.write('Hello World');
   res.end();
+}
 
-}).listen(8888);
+http.createServer(onRequest).listen(8888);
+
+
+function execute(someFunction, value) {
+  someFunction(value);
+}
+
+execute(word => console.log(word), 'Hello');
