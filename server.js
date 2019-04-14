@@ -6,7 +6,7 @@ function start(route, handle) {
     const pathname = url.parse(req.url).pathname;  
     console.log(`Request for ${pathname} received`);
 
-    const content = route(handle, pathname);
+    const content = route(handle, pathname, res);
 
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.write(content);
